@@ -21,27 +21,30 @@ export default function Signup() {
   }
 
   return (
-    <div style={{ maxWidth: 400, margin: "50px auto" }}>
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        /><br /><br />
-        <input
-          type="password"
-          placeholder="Password (6+ chars)"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        /><br /><br />
-        <button type="submit">Create Account</button>
-      </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <p>Already have an account? <Link to="/login">Log in</Link></p>
+    <div className="auth-page">
+      <div className="auth-card">
+        <h2>Create your journal</h2>
+        <p className="auth-subtitle">Start tracking your moods and music</p>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password (6+ chars)"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className="btn-primary">Create Account</button>
+        </form>
+        {error && <p className="auth-error">{error}</p>}
+        <p className="auth-switch">Already have an account? <Link to="/login">Log in</Link></p>
+      </div>
     </div>
   );
 }
